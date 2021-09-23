@@ -10,8 +10,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
-    border: .15rem solid $colorBright;
+    width: 90%;
+    // border: .15rem solid $colorBright;
+    box-shadow: 0 0 .5rem 0 $colorBase;
     padding: 2rem;
 }
 
@@ -28,7 +29,6 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    text-align: center;
 }
 
 .bar{
@@ -36,12 +36,17 @@
     padding-bottom: 1rem;
     color: $colorBright;
 }
-
+.infoData{
+    margin-right: 2rem;
+    &:last-child{
+        margin-right: 0;
+    }
+}
 .dataTitle{
     width: 5rem;
 }
 .dataDirector{
-    width: 10rem;
+    width: 5rem;
 }
 .dataYear{
     width: 4.5rem;
@@ -51,5 +56,56 @@
 }
 .dataActors{
     flex-grow: 1;
+}
+
+.optionsBar{
+    margin: 2rem 0;
+}
+
+.button{
+    padding: .5rem .7rem;
+    border: .12rem solid $colorBright;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+
+.minibuttonBox {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+    .minibutton{
+        font-size: .6rem;
+        padding: .3rem .5rem;
+        background-color: $colorBright;
+        color: white;
+        margin-right: .5rem;
+        border-radius: .3rem;
+        cursor: pointer;
+        &:last-child{
+            margin-right: 0;
+        }
+
+        &:hover{
+            background-color: $colorBase;
+        }
+    }
+}
+
+.addNewMovie{
+    max-width: 90%;
+    margin: 1rem 0;
+    padding: 2rem;
+    box-shadow: 0 0 .5rem 0 $colorBase;
+}
+
+.inputsNewMovie{
+    border: 0;
+    text-align: left;
+    border-bottom: .12rem dotted $colorBright;
+    margin-right: .5rem;
+    &:focus{
+        border:0;
+    }
 }
 

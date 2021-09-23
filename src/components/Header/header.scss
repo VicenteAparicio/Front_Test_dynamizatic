@@ -3,10 +3,8 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: $colorBase;
-
-    z-index: 3;
-
+    background-color: $colorBright;
+    box-shadow: 0 0 .5rem 0 $colorBase;
     width: 100%;
     height: 3rem;
 }
@@ -47,3 +45,4 @@ nav {
         margin-left: 0;
     }
 }
+
