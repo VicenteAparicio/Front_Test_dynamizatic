@@ -1,5 +1,5 @@
+// IMPORT MOTORS
 import React from 'react';
-//IMPORT IMAGE
 
 
 const Home = () => {
