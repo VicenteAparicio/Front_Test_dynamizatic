@@ -6,12 +6,24 @@ import axios from 'axios';
 const Management = () => {
 
     const [search, setSearch] = useState("");
+
+    // SAVE DATA TO REGISTER NEW MOVIE
     const [addMovie, setAddMovie] = useState({title:'',director:'',year:'',genre:'',actors:''});
+    
+    // SAVE ORIGINAL DATA FROM DATABASE
     const [movies, setMovies] = useState([]);
-    const [allowAdd, setAllowAdd] = useState('');
-    const [updMovie, setUpdMovie] = useState('');
+
+    // SAVE FILTER DATA TO APLY FILTERS WITHOUT MODIFY ORIGINAL INFO
     const [filteredMovies, setFilteredMovies] = useState([]);
+
+    // SAVE MOVIE DATA TO BE UPDATED
     const [updateData, setUpdateData] = useState({id:'',title:'',director:'',year:'',genre:'',actors:''});
+    
+    // VISUAL INTERRUPTORS
+    // SHOW NEW MOVIE REGISTER BOX
+    const [allowAdd, setAllowAdd] = useState('');
+    // SHOW EDITION MOVIE BOX
+    const [updMovie, setUpdMovie] = useState('');
    
 
     useEffect(()=>{
@@ -29,13 +41,13 @@ const Management = () => {
         setUpdateData({...updateData, [e.target.name]: e.target.value});
     }
 
-    // useEffect(() => {
-    //     setFilteredMovies(
-    //         movies.filter((movie) =>
-    //             movie.title.toLowerCase().includes(search.toLowerCase())
-    //         )
-    //     );
-    // }, [search, movies]);
+    useEffect(() => {
+        setFilteredMovies(
+            movies.filter((movie) =>
+                movie.title.toLowerCase().includes(search.toLowerCase())
+            )
+        );
+    }, [search, movies]);
 
     // SHOW ALL MOVIES AND SAVE ON HOOKS
     const allMovies = async () => {
@@ -122,32 +134,33 @@ const Management = () => {
 
     }
 
-    // const searcher = (option, arg) => {
-    //     switch(option){
-    //         case 'titleSearch':
-    //             if (arg.length>2){
-    //                 setSearch(arg)
-    //             } else {
-    //                 setSearch('');
-    //             }
-    //             break;
-    //         case 'actorSearch':
-    //             if (arg.length>2){
-    //                 setSearchActor(arg)
-    //             } else {
-    //                 setSearchActor('');
-    //             }
-    //             updateActors();
-    //             break;
-    //         default:
-    //             break;
-    //     }
+    const searcher = (arg) => {
+        switch(arg.target.name){
+            case 'title':
+                if (arg.target.value.length>2){
+                    setSearch(arg.target.value)
+                } else {
+                    setSearch('');
+                }
+                break;
+            // case 'actorSearch':
+            //     if (arg.length>2){
+            //         setSearchActor(arg)
+            //     } else {
+            //         setSearchActor('');
+            //     }
+                // updateActors();
+                // break;
+            default:
+                break;
+        }
+    }
 
     return (
         <div id="containerManager">
             
             <div className="optionsBar">
-                {/* <input className="textSearch" type="string" name="title" placeholder="title" onChange={stringSearch}></input> */}
+                <input className="textSearch" type="string" name="title" placeholder="title" onChange={(e)=>searcher(e)}></input>
                 <div className="button" onClick={()=>setAllowAdd(true)}>NEW</div>
             </div>
 

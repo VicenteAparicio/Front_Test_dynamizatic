@@ -13,6 +13,7 @@
     width: 90%;
     // border: .15rem solid $colorBright;
     box-shadow: 0 0 .5rem 0 $colorBase;
+    margin: 1rem 0;
     padding: 2rem;
 }
 
@@ -43,10 +44,10 @@
     }
 }
 .dataTitle{
-    width: 5rem;
+    width: 8rem;
 }
 .dataDirector{
-    width: 5rem;
+    width: 8rem;
 }
 .dataYear{
     width: 4.5rem;
@@ -59,14 +60,30 @@
 }
 
 .optionsBar{
-    margin: 2rem 0;
+    display: flex;
+    width: 90%;
+    padding: 1rem 2rem;
+    margin: 2rem 0 1rem 0;
+    background-color: $colorBright;
+    
+    box-shadow: 0 0 .5rem 0 $colorBase;
+
 }
 
 .button{
-    padding: .5rem .7rem;
-    border: .12rem solid $colorBright;
+    font-size: .8rem;
+    padding: .3rem .5rem;
+    background-color: white;
+    // border: .12rem solid $colorBright;
     border-radius: .5rem;
     cursor: pointer;
+    
+    transition: .3s cubic-bezier(0.5, 0.82, 0.165, 1);
+
+    &:hover{
+        background-color: $colorBase;
+        color: white;
+    }
 }
 
 
@@ -75,6 +92,7 @@
     flex-direction: row;
     margin-left: 1rem;
     align-items: center;
+
     .minibutton{
         font-size: .6rem;
         padding: .3rem .5rem;
@@ -83,19 +101,21 @@
         margin-right: .5rem;
         border-radius: .3rem;
         cursor: pointer;
+        
+        transition: .3s cubic-bezier(0.5, 0.82, 0.165, 1);
         &:last-child{
             margin-right: 0;
         }
 
         &:hover{
             background-color: $colorBase;
+            color: white;
         }
     }
 }
 
 .addNewMovie{
     max-width: 90%;
-    margin: 1rem 0;
     padding: 2rem;
     box-shadow: 0 0 .5rem 0 $colorBase;
 }
@@ -103,6 +123,7 @@
 .red{
     background-color: $colorBright;
     color: white;
+
     .minibutton{
         background-color: white;
         color: black;
@@ -112,9 +133,11 @@
 .inputsNewMovie{
     border: 0;
     text-align: left;
+    padding: .5rem;
     border-bottom: .12rem dotted $colorBright;
     margin-right: .5rem;
-    &:focus{
-        border:0;
-    }
+
+    
+    transition: .3s cubic-bezier(0.5, 0.82, 0.165, 1);
+
 }
