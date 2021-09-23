@@ -24,7 +24,6 @@ const Management = () => {
     const allMovies = async () => {
         try{
             let res = await axios.get('http://127.0.0.1:8000/api/allmovies');
-            // let res = await axios.get(`${connection}/movies/allmovies`, {headers: {'Authorization': `Basic ${props.logData.token}`}});
             console.log(res.data.data);
             setMovies(res.data.data);
         } catch (err) {
@@ -62,14 +61,30 @@ const Management = () => {
             <div className="optionsBar">
                 {/* <input className="textSearch" type="string" name="title" placeholder="title" onChange={stringSearch}></input> */}
             </div>
+            
             <div className="containerMovies">
+
+                <div className="data bar">
+                    <div className="dataTitle">TITLE</div>
+                    <div className="dataDirector">DIRECTOR</div>
+                    <div className="dataYear">YEAR</div>
+                    <div className="dataGenre">GENRE</div>
+                    <div className="dataActors">ACTOR</div>
+                </div>
+                
+
                 {movies.map((movie, index)=>(
-                        <div className="movieBox">
-                            <div className="movieCard" key={index}>
-                                <div className="title">{movie.title}</div>
-                            </div>
+                    <div className="movieRow">
+                        <div className="data" key={index}>
+                            <div className="dataTitle">{movie.title}</div>
+                            <div className="dataDirector">{movie.director}</div>
+                            <div className="dataYear">{movie.year}</div>
+                            <div className="dataGenre">{movie.genre.split(',').join(', ')}</div>
+                            <div className="dataActors">{movie.actors.split(',').join(', ')}</div> 
                         </div>
-                    ))}
+                    </div>
+                ))}
+
             </div>
         </div>
     )

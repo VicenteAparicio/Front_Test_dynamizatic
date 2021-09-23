@@ -2,4 +2,54 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
+
+.containerMovies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    border: .15rem solid $colorBright;
+    padding: 2rem;
+}
+
+.movieRow {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
+    border-bottom: .12rem dotted $colorBright;
+    width: 100%;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.bar{
+    border-bottom: .12rem dotted $colorBright;
+    padding-bottom: 1rem;
+    color: $colorBright;
+}
+
+.dataTitle{
+    width: 5rem;
+}
+.dataDirector{
+    width: 10rem;
+}
+.dataYear{
+    width: 4.5rem;
+}
+.dataGenre{
+    width: 8rem;
+}
+.dataActors{
+    flex-grow: 1;
+}
+
