@@ -63,7 +63,7 @@
     display: flex;
     width: 90%;
     padding: 1rem 2rem;
-    margin: 2rem 0 1rem 0;
+    margin-top: 2rem;
     background-color: $colorBright;
     
     box-shadow: 0 0 .5rem 0 $colorBase;
@@ -117,12 +117,14 @@
 .addNewMovie{
     max-width: 90%;
     padding: 2rem;
+    margin-top: 1rem;
     box-shadow: 0 0 .5rem 0 $colorBase;
 }
 
 .red{
     background-color: $colorBright;
     color: white;
+    margin-top: 0;
 
     .minibutton{
         background-color: white;
@@ -133,11 +135,19 @@
 .inputsNewMovie{
     border: 0;
     text-align: left;
-    padding: .5rem;
+    padding: .3rem;
     border-bottom: .12rem dotted $colorBright;
     margin-right: .5rem;
 
     
     transition: .3s cubic-bezier(0.5, 0.82, 0.165, 1);
 
+}
+
+.filterInputs{
+    all: unset;
+    background-color: white;
+    padding: .3rem;
+    font-size: .8rem;
+    margin-right: 1rem;
 }

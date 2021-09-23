@@ -5,6 +5,9 @@ import axios from 'axios';
 
 const Management = () => {
 
+    let connection = "https://dynamizatest.herokuapp.com/api";
+    // let connection = "http://127.0.0.1:8000/api";
+
     const [search, setSearch] = useState("");
 
     // SAVE DATA TO REGISTER NEW MOVIE
@@ -52,7 +55,7 @@ const Management = () => {
     // SHOW ALL MOVIES AND SAVE ON HOOKS
     const allMovies = async () => {
         try{
-            let res = await axios.get('http://127.0.0.1:8000/api/allmovies');
+            let res = await axios.get(`${connection}/allmovies`);
 
             setMovies(res.data.data);
             setFilteredMovies(res.data.data);
@@ -74,7 +77,7 @@ const Management = () => {
             }
             
 
-            let res = await axios.post(`http://127.0.0.1:8000/api/createmovie`, body)
+            let res = await axios.post(`${connection}/createmovie`, body)
 
             if (res){
                 setMovies(res.data.data);
@@ -103,7 +106,7 @@ const Management = () => {
                 actors: updateData.actors,
             }
             console.log(body)
-            let res = await axios.post(`http://127.0.0.1:8000/api/updatemovie`, body)
+            let res = await axios.post(`${connection}/updatemovie`, body)
 
             if (res){
                 setMovies(res.data.data);
@@ -122,7 +125,7 @@ const Management = () => {
                 movie_id: id,
             }
 
-            let res = await axios.post(`http://127.0.0.1:8000/api/deletemovie`, body)
+            let res = await axios.post(`${connection}/deletemovie`, body)
 
             if (res){
                 setMovies(res.data.data);
@@ -160,7 +163,7 @@ const Management = () => {
         <div id="containerManager">
             
             <div className="optionsBar">
-                <input className="textSearch" type="string" name="title" placeholder="title" onChange={(e)=>searcher(e)}></input>
+                <input className="filterInputs" type="string" name="title" placeholder="title" onChange={(e)=>searcher(e)}></input>
                 <div className="button" onClick={()=>setAllowAdd(true)}>NEW</div>
             </div>
 
