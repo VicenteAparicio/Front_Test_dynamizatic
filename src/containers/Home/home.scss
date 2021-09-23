@@ -4,3 +4,26 @@
     align-items: center;
     height: 90vh;
 }
+
+.welcomeBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+    width: 30rem;
+    background-color: $colorBright;
+    color: white;
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem 0 $colorBase ;
+}
+
+.text01{
+    width: 70%;
+    font-size: 1rem;
+    text-align: right;
+}
+.name{
+    font-size: 3rem;
+    line-height: 3.8rem;
+}

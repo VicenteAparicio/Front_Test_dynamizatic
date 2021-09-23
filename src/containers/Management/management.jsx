@@ -8,7 +8,8 @@ const Management = () => {
     let connection = "https://dynamizatest.herokuapp.com/api";
     // let connection = "http://127.0.0.1:8000/api";
 
-    const [search, setSearch] = useState("");
+    // SEARCH HOOK
+    const [sGroup, setSGroup] = useState({title:'', director:'',year:'',genre:'',actors:''})
 
     // SAVE DATA TO REGISTER NEW MOVIE
     const [addMovie, setAddMovie] = useState({title:'',director:'',year:'',genre:'',actors:''});
@@ -33,24 +34,60 @@ const Management = () => {
         allMovies();
     },[]);
 
-    useEffect(()=>{
-        setFilteredMovies(movies);
-    },[movies]);
-
     const dataMovie = (e) => {
         setAddMovie({...addMovie, [e.target.name]: e.target.value});
     }
     const updDataMovie = (e) => {
         setUpdateData({...updateData, [e.target.name]: e.target.value});
     }
+    const searchGroup = (e) => {
+        setSGroup({...sGroup, [e.target.name]: e.target.value});
+    }
 
-    useEffect(() => {
+    // SEARCH FILTERS 
+    useEffect(()=> {
         setFilteredMovies(
-            movies.filter((movie) =>
-                movie.title.toLowerCase().includes(search.toLowerCase())
+            movies.filter((movie)=>
+                movie.title.toLowerCase().includes(sGroup.title.toLowerCase())
             )
         );
-    }, [search, movies]);
+    }, [sGroup.title])
+
+    useEffect(()=> {
+        setFilteredMovies(
+            movies.filter((movie)=>
+                movie.actors.toLowerCase().includes(sGroup.actors.toLowerCase())
+            )
+        );
+    }, [sGroup.actors])
+
+    useEffect(()=> {
+        setFilteredMovies(
+            movies.filter((movie)=>
+                movie.director.toLowerCase().includes(sGroup.director.toLowerCase())
+            )
+        );
+    }, [sGroup.director])
+
+    useEffect(()=> {
+        setFilteredMovies(
+            movies.filter((movie)=>
+                movie.genre.toLowerCase().includes(sGroup.genre.toLowerCase())
+            )
+        );
+    }, [sGroup.genre])
+
+    useEffect(()=> {
+        if (sGroup.year > 0){
+            setFilteredMovies(
+                movies.filter((movie)=>
+                    movie.year == sGroup.year
+                )
+            );
+        } else {
+            setFilteredMovies(movies)
+        }
+    }, [sGroup.year])
 
     // SHOW ALL MOVIES AND SAVE ON HOOKS
     const allMovies = async () => {
@@ -137,33 +174,19 @@ const Management = () => {
 
     }
 
-    const searcher = (arg) => {
-        switch(arg.target.name){
-            case 'title':
-                if (arg.target.value.length>2){
-                    setSearch(arg.target.value)
-                } else {
-                    setSearch('');
-                }
-                break;
-            // case 'actorSearch':
-            //     if (arg.length>2){
-            //         setSearchActor(arg)
-            //     } else {
-            //         setSearchActor('');
-            //     }
-                // updateActors();
-                // break;
-            default:
-                break;
-        }
-    }
+
 
     return (
         <div id="containerManager">
             
             <div className="optionsBar">
-                <input className="filterInputs" type="string" name="title" placeholder="title" onChange={(e)=>searcher(e)}></input>
+                <div className="filters">
+                    <input className="filterInputs" type="string" name="title" placeholder="title" onChange={(e)=>searchGroup(e)}></input>
+                    <input className="filterInputs" type="string" name="director" placeholder="director" onChange={(e)=>searchGroup(e)}></input>
+                    <input className="filterInputs" type="number" name="year" placeholder="year" onChange={(e)=>searchGroup(e)}></input>
+                    <input className="filterInputs" type="string" name="genre" placeholder="genre" onChange={(e)=>searchGroup(e)}></input>
+                    <input className="filterInputs" type="string" name="actors" placeholder="actors" onChange={(e)=>searchGroup(e)}></input>
+                </div>
                 <div className="button" onClick={()=>setAllowAdd(true)}>NEW</div>
             </div>
 
