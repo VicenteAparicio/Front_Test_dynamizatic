@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# DynamizaTic Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Prueba técnica para DynamizaTic.<br>
 
-## Available Scripts
+Tiempo de trabajo: 10 horas aprox.<br>
+Tecnologías: React Js + PHP Laravel<br><br>
 
-In the project directory, you can run:
+### Repositorios
 
-### `npm start`
+<a href="https://github.com/VicenteAparicio/dynamizatic">Front</a><br>
+<a href="https://github.com/VicenteAparicio/dynamizaback">Back</a><br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Deploy
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<a href="https://dynamizatestfront.herokuapp.com/">DynamizaTic Test</a>
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instrucciones
 
-### `npm run build`
+Acceder al deploy en heroku a través del enlace anterior. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="./src/assets/Img/img01.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br><br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Navegar a la sección de "data" en los links del Header.<br>
+En esta sección encontraremos el listado de la base de datos junto con el box de los filtros.
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+A través de los inputs el usuario puede filtrar los datos sin necesidad que se recargue la página cada vez ya que el objeto ha sido guardado en un hook desde el cuál nos permitirá trabajar con él sin necesidad de volver a llamar al servidor.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="./src/assets/Img/img02.png">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br><br>
 
-## Learn More
+En el box de los filtros encontraremos el botón para abrir la función de crear un nuevo registro. <br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Esta función nos permitirá añadir los datos y decidir si los guardamos en la base de datos o cancelamos la acción.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+<img src="./src/assets/Img/img03.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
+<br>
 
-### Analyzing the Bundle Size
+En la lista de los elementos tenemos dos acciones, editar el elemento o borrarlo. Al pulsar en la acción de editar elemento nos aparecerá un box preparado con la información de ese elemento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
 
-### Making a Progressive Web App
+<img src="./src/assets/Img/img04.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br><br>
 
-### Advanced Configuration
+Desde el box de edición podremos cancelar la edición o guardarla en el servidor. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Tanto si añadimos, eliminamos o editamos un registro el servidor nos devolverá la lista actualizada.
 
-### Deployment
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### ¿QUÉ HA FALTADO?
 
-### `npm run build` fails to minify
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Me ha faltado añadir la paginación del listado. Me he quedado sin tiempo para investigar bien cómo implementarla con el método de paginate desde el backend y he decidido que no era buena idea dejarla a medias estropeando la funcionalidad del resto del código.
