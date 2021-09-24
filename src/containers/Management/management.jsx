@@ -6,7 +6,6 @@ import axios from 'axios';
 const Management = () => {
 
     let connection = "https://dynamizatest.herokuapp.com/api";
-    // let connection = "http://127.0.0.1:8000/api";
 
     // SEARCH HOOK
     const [sGroup, setSGroup] = useState({title:'', director:'',year:'',genre:'',actors:''})
@@ -51,7 +50,7 @@ const Management = () => {
                 movie.title.toLowerCase().includes(sGroup.title.toLowerCase())
             )
         );
-    }, [sGroup.title])
+    }, [sGroup.title, movies])
 
     useEffect(()=> {
         setFilteredMovies(
@@ -59,7 +58,7 @@ const Management = () => {
                 movie.actors.toLowerCase().includes(sGroup.actors.toLowerCase())
             )
         );
-    }, [sGroup.actors])
+    }, [sGroup.actors, movies])
 
     useEffect(()=> {
         setFilteredMovies(
@@ -67,7 +66,7 @@ const Management = () => {
                 movie.director.toLowerCase().includes(sGroup.director.toLowerCase())
             )
         );
-    }, [sGroup.director])
+    }, [sGroup.director, movies])
 
     useEffect(()=> {
         setFilteredMovies(
@@ -75,25 +74,25 @@ const Management = () => {
                 movie.genre.toLowerCase().includes(sGroup.genre.toLowerCase())
             )
         );
-    }, [sGroup.genre])
+    }, [sGroup.genre, movies])
 
     useEffect(()=> {
         if (sGroup.year > 0){
             setFilteredMovies(
                 movies.filter((movie)=>
-                    movie.year == sGroup.year
+                    movie.year === parseInt(sGroup.year)
                 )
             );
         } else {
             setFilteredMovies(movies)
         }
-    }, [sGroup.year])
+    }, [sGroup.year, movies])
 
     // SHOW ALL MOVIES AND SAVE ON HOOKS
     const allMovies = async () => {
         try{
             let res = await axios.get(`${connection}/allmovies`);
-
+    
             setMovies(res.data.data);
             setFilteredMovies(res.data.data);
         } catch (err) {
@@ -113,7 +112,6 @@ const Management = () => {
                 actors: addMovie.actors,
             }
             
-
             let res = await axios.post(`${connection}/createmovie`, body)
 
             if (res){
@@ -142,7 +140,7 @@ const Management = () => {
                 genre: updateData.genre,
                 actors: updateData.actors,
             }
-            console.log(body)
+
             let res = await axios.post(`${connection}/updatemovie`, body)
 
             if (res){
